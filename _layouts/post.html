@@ -23,18 +23,47 @@ var idcomments_post_url;
 <span id="IDCommentsPostTitle" style="display:none"></span>
 <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
   
-  <form method="POST" action="https://api.staticman.net/v2/entry/krambambula/krambambula.github.io/master/comments">
-  <input name="options[redirect]" type="hidden" value="https://krambambula.github.io">
-  <!-- e.g. "2016-01-02-this-is-a-post" -->
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label><input name="fields[name]" type="text">Name</label>
-  <label><input name="fields[email]" type="email">E-mail</label>
-  <label><textarea name="fields[message]"></textarea>Message</label>
+<!-- Notice the action url that tells Staticman where to send the POST data -->
+<form method="POST"
+      action="https://api.staticman.net/v2/entry/krambambula/krambambula.github.io/gh-pages/reviews"
+      oninput="result.value=parseInt(this['fields[review]'].value)">
+  <!-- The review will be associated with the current product -->
+  <input name="fields[product]" type="hidden" value="{{ page.slug }}" />
+  <!-- with options[redirect], our visitor will come back to our website when submitting a review -->
+  <input name="options[redirect]" type="hidden" value="{{site.url}}{{site.baseurl}}{{ page.url }}" />
   
-  <button type="submit">Go!</button>
+  <h4>Add a review</h4>
+  <!-- and finally the user visible fields -->
+  <p><label>Your name: <input type="text" name="fields[name]" /></label></p>
+  <p><label>Review: <input type="range" id="fields-review" name="fields[review]" min="0" max="5" step="0.1" value="5" /></label><output for="fields-review" name="result">5</output>/5</p>
+  <p><label>Comment: <input type="text" name="fields[message]" /></label></p>
+  <p><button type="submit">Save review</button></p>
 </form>
   
-Comments:
-{% include comments.html %}
+  {% assign reviews = site.data.reviews | where:'product',page.slug %}
+{% assign reviewCount = reviews | size %}
+{% assign sum = 0 %}
+{% for review in reviews %}
+  {% assign sum = sum | plus: review.review %}
+{% endfor %}
+
+<h3>Reviews
+  {% if reviewCount > 0 %}
+    {% assign sum = sum | divide:reviewCount %}
+    (Average: {{ sum }})
+  {% endif %}
+</h3>
+<ul>
+  {% for review in reviews %}
+  <li>
+    <p><b>{{ review.review }}/5</b>  by <b>{{ review.name }}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
+    {% if review.message %}
+    <p>
+      {{review.message}}
+    </p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
   
 </article>
