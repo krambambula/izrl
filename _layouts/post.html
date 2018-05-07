@@ -34,22 +34,6 @@ var idcomments_post_url;
   <button type="submit">Go!</button>
 </form>
   
-{% assign count = 0 %}
-{% assign comments = (site.data.comments[page.slug] | where_exp: 'item', 'item.replying_to == ""' | sort: 'date') %} 
-{% assign comments = (comments | sort) %}
-{% for comment in comments %}              
-  {% if comment[1].replying_to == "" %}    
-    {% assign index       = (forloop.index | minus: count) %}
-    {% assign r           = comment[1].replying_to %}
-    {% assign replying_to = r | to_integer %}
-    {% assign email       = comment[1].email %}
-    {% assign name        = comment[1].name %}
-    {% assign date        = comment[1].date %}
-    {% assign message     = comment[1].message %}
-    
-  {% else %}
-  {% assign count = count | plus: 1 %}
-  {% endif %}
-{% endfor %}
+{% include comments.html %}
   
 </article>
