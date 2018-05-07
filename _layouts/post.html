@@ -34,22 +34,18 @@ var idcomments_post_url;
   <button type="submit">Go!</button>
 </form>
   
-<div class="js-comments">
-	{% assign comments = site.data.comments | sort %}
-	
-	{% for review in reviews reversed %}
-		{% assign commentData = comment[1] %}
+            % for k in sorted(data.keys(), reverse=True):
+            % if post._base_path in k:
 
-		<article class="review mdl-card mdl-shadow--2dp">
-		  <div class="mdl-card__title">
-		    <h2 class="mdl-card__title-text">{{ commentData.name }}</h2>
-		  </div>
-		  <div class="mdl-card__supporting-text">
-		  	<p><strong>Comment by: </strong>{{ commentData.message }}</p>
-		  </div>
-		  
-		</article>
-	{% endfor %}
-</div>
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Comment by: ${data[k]['name'] | h}</h3>
+            </div>
+            <div class="panel-body">
+                ${data[k]['message'] | h}
+            </div>
+            </div>
+            % endif
+            % endfor
   
 </article>
