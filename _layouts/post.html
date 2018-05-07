@@ -34,4 +34,20 @@ var idcomments_post_url;
   <button type="submit">Go!</button>
 </form>
   
+  {% capture post_slug %}{{ page.url | slugify }}{% endcapture %}
+{% if site.data.comments[post_slug] %}
+  {% assign comments = site.data.comments[post_slug] | sort %}
+
+  {% for comment in comments %}
+    {% assign email = comment[1].email %}
+    {% assign name = comment[1].name %}
+    {% assign url = comment[1].url %}
+    {% assign date = comment[1].date %}
+    {% assign message = comment[1].message %}
+
+    {% include _post-comment.html index=forloop.index 
+       email=email name=name url=url date=date message=message %}
+  {% endfor %}
+{% endif %}
+  
 </article>
