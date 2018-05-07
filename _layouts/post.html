@@ -23,9 +23,9 @@ var idcomments_post_url;
 <span id="IDCommentsPostTitle" style="display:none"></span>
 <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
   
-<!-- Notice the action url that tells Staticman where to send the POST data -->
+<!-- Staticman -->
 <form method="POST"
-      action="https://api.staticman.net/v2/entry/krambambula/krambambula.github.io/gh-pages/reviews"
+      action="https://api.staticman.net/v2/entry/krambambula/krambambula.github.io/master/reviews"
       oninput="result.value=parseInt(this['fields[review]'].value)">
   <!-- The review will be associated with the current product -->
   <input name="fields[product]" type="hidden" value="{{ page.slug }}" />
