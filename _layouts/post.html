@@ -50,10 +50,10 @@ var idcomments_post_url;
 <ul>
   {% for review in reviews %}
   <li>
-    <p><b>{{ review.name }}</b> <b>{{review.comment}}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
-    {% if review.message %}
+    <p><b>{{ review.name }}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
+    {% if review.comment %}
     <p>
-      {{review.message}}
+      {{review.comment}}
     </p>
     {% endif %}
   </li>
