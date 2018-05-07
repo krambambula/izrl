@@ -35,7 +35,7 @@ var idcomments_post_url;
   <h4>Add a comment</h4>
   <!-- and finally the user visible fields -->
   <p><label>Your name: <input type="text" name="fields[name]" /></label></p>
-  <p><label>Comment: <input type="text" name="fields[message]" /></label></p>
+  <p><label>Comment: <input type="text" name="fields[comment]" /></label></p>
   <p><button type="submit">Go</button></p>
 </form>
   
@@ -50,7 +50,7 @@ var idcomments_post_url;
 <ul>
   {% for review in reviews %}
   <li>
-    <p><b>{{ review.name }}</b> <b>{{review.message}}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
+    <p><b>{{ review.name }}</b> <b>{{review.comment}}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
     {% if review.message %}
     <p>
       {{review.message}}
