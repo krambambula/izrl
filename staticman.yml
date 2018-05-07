@@ -6,7 +6,7 @@ reviews:
   moderation: false
   
   # they contain a name, a review note, a text message and a field to associate the review to a product
-  allowedFields: ["name", "message", "review", "product", "comment"]
+  allowedFields: ["name", "review", "product", "comment"]
   # message is optional, other fields are required
   requiredFields: ["name", "comment", "product"]
   # the content will be commited to the gh-pages branche
