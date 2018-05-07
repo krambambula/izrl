@@ -8,7 +8,7 @@ reviews:
   # they contain a name, a review note, a text message and a field to associate the review to a product
   allowedFields: ["name", "message", "review", "product"]
   # message is optional, other fields are required
-  requiredFields: ["name", "review", "product"]
+  requiredFields: ["name", "message", "product"]
   # the content will be commited to the gh-pages branche
   branch: "master"
   # Staticman will include the name field in the commit message
