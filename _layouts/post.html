@@ -40,8 +40,13 @@ layout: default
   {% assign sum = sum | plus: review.review %}
 {% endfor %}
 
-    {% for review in reviews %}
 <h3>Comments</h3>
+      {% if review.comment = 0 %}
+    <p>
+      No one comments left.
+    </p>
+    {% endif %}
+      {% for review in reviews %}
 <ul>
   <li>
     <p><b>{{ review.name }}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
