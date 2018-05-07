@@ -56,7 +56,7 @@ var idcomments_post_url;
 <ul>
   {% for review in reviews %}
   <li>
-    <p><b>{{ review.review }}/5</b>  by <b>{{ review.name }}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
+    <p><b>{{ review.review }}/5</b>  by <b>{{ review.name }}</b> <b>{{review.message}}</b> on <i>{{ review.date | date: '%B %d, %Y' }}</i></p>
     {% if review.message %}
     <p>
       {{review.message}}
