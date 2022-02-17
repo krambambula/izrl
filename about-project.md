@@ -1,8 +1,9 @@
 ## About project
 
 IZBISHE is roguelike game that was inspired by slavic folklore. 
+
 Key features:
-- Main feature unique sin's-system - if you destroy a specific enemy - you was debuffs
+- Main feature in unique sin's-system - if you destroy a specific enemy (but you don't know which enemy is specific) - you was debuffs
 - Several options to pass the floor
 - Many and many slavic undergrounds demons
 - A lot of uknown items with random effects
