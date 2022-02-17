@@ -1,8 +1,6 @@
 ---
 published: true
 ---
-## About project
-
 IZBISHE is roguelike game that was inspired by slavic folklore. 
 
 Key features:
