@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-IZBISHE is roguelike game that was inspired by slavic folklore. 
+IZBISHE is ASCII-roguelike game that was inspired by slavic folklore. 
 In the center of the plot is a stranger who inherits an old house in the wilderness. There was an old basement next to the house. Our hero went down inside and sorting through the rubble found the entrance to the underworld.
 
 The story line is based on various folk tales about devils and the underworld. I'm also drew inspiration from the stories of Nikolai Gogol. I will give one of the plots that will be found in the game. Often in folk tales, devils gather sinners all over the district and take them on a wagon to the underworld, chasing them in the back with a whip.
